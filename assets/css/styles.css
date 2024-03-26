@@ -1,0 +1,857 @@
+:root {
+    --primaryColor: #1F8FCD;
+    --secondaryColor: #18CBEF;
+    --white: #FFFFFF;
+    --black: #000000;
+    --appBlack: #353535;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: "Poppins", sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ====== NavBar ====== */
+/* Add this CSS to fix the header */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#nav {
+    padding: 0px 50px;
+    height: 83px;
+    background-color: var(--white) !important;
+}
+
+.nav-logo img {
+    max-width: 70%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 5rem;
+}
+
+.nav-link {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #475569;
+}
+
+.nav-logo {
+    font-size: 2.1rem;
+    font-weight: 500;
+    color: #482ff7;
+}
+
+.custom-nav-link {
+    margin-right: 30px;
+}
+
+.custom-nav-link a {
+    color: var(--appBlack);
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.custom-nav-link a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: width 0.3s ease;
+}
+
+.custom-nav-link a:hover::after,
+.custom-nav-link a.selected::after {
+    width: 100%;
+    background-color: var(--primaryColor);
+}
+
+.custom-nav-link a:hover {
+    color: var(--primaryColor);
+}
+
+.nav-link.selected {
+    color: var(--primaryColor);
+    font-weight: bold;
+}
+
+/* === Responsive For Mobile view Navbar ==== */
+@media only screen and (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        /* top: 5rem; */
+        z-index: 1;
+        top: 9rem;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow:
+            0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 2.5rem 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+}
+
+
+/* ====== Home ====== */
+
+#home {
+    width: 100%;
+    height: 80vh;
+    background-image: url('../images/homeBG.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-left: 50px;
+    padding-right: 50px;
+
+}
+
+.home-container {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(5%, -50%);
+    text-align: center;
+}
+
+.home-content {
+    max-width: 800px;
+    text-align: left;
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--white);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-content h1 {
+    font-size: 52px;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.home-content h1 span {
+    color: var(--secondaryColor);
+    font-weight: 600;
+    letter-spacing: 1;
+}
+
+.home-content button {
+    padding: 20px 70px;
+    font-size: 16px;
+    background-color: white;
+    color: var(--secondaryColor);
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.home-content button:hover {
+    background-color: var(--primaryColor);
+    color: var(--white);
+}
+
+/* === Responsive For Mobile view Home ==== */
+@media screen and (max-width: 768px) {
+    #home {
+        background-size: cover;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .home-container {
+        left: 0;
+        transform: translate(0%, -50%);
+    }
+
+    .home-content h1 {
+        font-size: 34px;
+
+    }
+}
+
+/* ====== Why Choose us ====== */
+#whychooseus {
+    /* padding: 50px 0; */
+    background: rgb(31, 143, 205);
+    background: linear-gradient(180deg, rgba(31, 143, 205, 1) -300%, rgba(255, 255, 255, 1) 100%);
+}
+
+.whychooseus-row {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.whychooseus-column {
+    flex: 1;
+    padding: 0 10px;
+
+}
+
+.whychooseus-content {
+    text-align: left;
+    padding-top: 150px;
+    padding-left: 150px;
+}
+
+.whychooseus-content h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--primaryColor);
+}
+
+.whychooseus-content p {
+    font-size: 18px;
+    color: var(--appBlack);
+}
+
+.whychooseus-column img {
+    width: 100%;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .whychooseus-content {
+        padding: 20px;
+        /* Adjust padding for mobile */
+        text-align: center;
+        /* Center content on mobile */
+    }
+
+    .whychooseus-content h2 {
+        font-size: 36px;
+        /* Reduce font size for mobile */
+    }
+
+    .whychooseus-content p {
+        font-size: 16px;
+        /* Reduce font size for mobile */
+    }
+
+    .whychooseus-row {
+        flex-direction: column;
+    }
+
+    .whychooseus-column {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+}
+
+/* ====== How it work Section ====== */
+#howitwork {
+    padding: 100px 150px 50px 150px;
+}
+
+#howitwork h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--primaryColor);
+    padding-bottom: 100px;
+}
+
+.howitwork-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-container {
+    position: relative;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    max-width: 100%;
+}
+
+.howitwork-container p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #757575;
+    text-align: center;
+}
+
+.p1 {
+    position: absolute;
+    top: -60px;
+    right: 340px;
+}
+
+.p2 {
+    position: absolute;
+    top: -60px;
+    left: 480px;
+}
+
+.p3 {
+    position: absolute;
+    top: 130px;
+    left: 190px;
+
+}
+
+.p4 {
+    position: absolute;
+    top: 70px;
+    right: 130px;
+}
+
+.p5 {
+    position: absolute;
+    top: 270px;
+    left: 560px;
+}
+
+.p6 {
+    position: absolute;
+    bottom: -50px;
+    left: 0px;
+    color: var(--primaryColor) !important;
+}
+
+.p7 {
+    position: absolute;
+    bottom: -50px;
+    left: 220px;
+    color: var(--primaryColor) !important;
+}
+
+.p8 {
+    position: absolute;
+    bottom: -50px;
+    right: 250px;
+}
+
+.p9 {
+    position: absolute;
+    bottom: -30px;
+    right: 100px;
+}
+
+.p10 {
+    position: absolute;
+    bottom: -6px;
+    right: -30px;
+}
+
+/* Media queries for tablet */
+@media (max-width: 768px) {
+    #howitwork {
+        padding: 50px 20px;
+        /* Adjust padding for responsiveness */
+    }
+
+    .p1,
+    .p2,
+    .p3,
+    .p4,
+    .p5,
+    .p6,
+    .p7,
+    .p8,
+    .p9,
+    .p10 {
+        position: relative;
+        /* Reset positioning */
+        text-align: center;
+        /* Align text center for smaller screens */
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        margin: 10px 0;
+        /* Add margin for better spacing */
+    }
+}
+
+/* Media queries for mobile */
+@media (max-width: 480px) {
+    #howitwork {
+        padding: 30px 10px;
+        /* Adjust padding for responsiveness */
+    }
+
+    .howitwork-container p {
+        font-size: 14px;
+        /* Adjust font size for smaller screens */
+    }
+}
+
+/* ====== Template Section ====== */
+#temp {
+    margin-top: 50px;
+}
+
+#temp img {
+    width: 100%;
+}
+
+/* ====== we ease your work Section ====== */
+#yourwork {
+    padding: 50px 150px 150px 150px;
+}
+
+#yourwork h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #757575;
+    padding-bottom: 30px;
+}
+
+#yourwork h2 span {
+    color: var(--primaryColor);
+}
+
+#yourwork h4 {
+    color: #757575;
+    font-weight: 400;
+    font-size: 22px;
+}
+
+#yourwork img {
+    width: 100%;
+}
+
+.yourwork-row-1,
+.yourwork-row-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Align items vertically */
+    padding: 20px 0px;
+}
+
+.yourwork-row-1 div,
+.yourwork-row-2 div {
+    display: flex;
+    align-items: center;
+
+
+}
+
+.divleft {
+    margin-left: -63px !important;
+}
+
+.divright {
+    margin-right: 47px !important;
+}
+
+.yourwork-row-1 div p,
+.yourwork-row-2 div p {
+    margin-left: 10px;
+    font-size: 18px;
+    color: #252525;
+}
+
+.yourwork-row-1 div:before,
+.yourwork-row-2 div:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: var(--primaryColor);
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.yourwork-row-1 div:before,
+.yourwork-row-2 div:before {
+    flex-shrink: 0;
+    /* Prevent circles from shrinking */
+}
+
+.learn-more {
+    background-color: var(--primaryColor);
+    color: #fff;
+    padding: 13px 50px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+/* Media queries for tablet */
+@media (max-width: 768px) {
+    #yourwork {
+        padding: 50px 20px;
+        /* Adjust padding for responsiveness */
+    }
+
+    #yourwork h2 {
+        font-size: 28px;
+        text-align: center;
+        padding-bottom: 0px;
+        /* Adjust font size for smaller screens */
+    }
+
+    #yourwork h4 {
+        font-size: 20px;
+        text-align: center;
+        padding-bottom: 20px;
+        /* Adjust font size for smaller screens */
+    }
+
+    .yourwork-row-1 div,
+    .yourwork-row-2 div {
+        flex-basis: calc(50% - 20px);
+
+
+        /* Adjust width for responsiveness */
+    }
+
+    .divleft {
+        margin-left: 0px !important;
+    }
+
+    .divright {
+        margin-right: 0px !important;
+    }
+
+    .yourwork-row-1 div p,
+    .yourwork-row-2 div p {
+
+        font-size: 10px;
+
+    }
+}
+
+/* Media queries for mobile */
+@media (max-width: 480px) {
+
+    .yourwork-row-1 div,
+    .yourwork-row-2 div {
+        flex-basis: 100%;
+        /* Set full width for smaller screens */
+    }
+}
+
+/* Adjust space between circle and text */
+
+
+
+
+/* ====== Service Section ====== */
+/* ====== Contact ====== */
+
+/* ====== Footer Section ====== */
+/* #footer {
+    padding: 50px 150px 0px 150px;
+} */
+
+#footer {
+    background-color: var(--primaryColor);
+    color: #FFFFFF;
+    background-image: url('../images/footer.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-bottom: 50px;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 50px;
+
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-col {
+    flex: 1;
+
+}
+
+.footer-col-left {
+    text-align: left;
+    /* margin-left: 100px; */
+}
+
+.footer-col-left p {
+    font-size: 39px;
+    width: 100%;
+    font-weight: 500;
+    margin-top: 20px;
+    line-height: 1.2;
+}
+
+.footer-col-left p span {
+    font-size: 39px;
+    width: 75%;
+    font-weight: 600;
+    color: var(--secondaryColor);
+
+}
+
+.footer-col-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 0px;
+    /* margin-right: 100px; */
+}
+
+
+
+.footer-col-right p {
+    margin-bottom: 16px;
+    font-size: 29px;
+    margin-right: 29px;
+}
+
+.social-icons {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 15%;
+    background-color: var(--white);
+    /* Make icons circular */
+    overflow: hidden;
+    /* Hide overflow to ensure circle shape */
+}
+
+.social-icons li a {
+    display: block;
+    /* Make the link fill the entire circle */
+    text-align: center;
+    line-height: 40px;
+    /* Adjust line height to center the icon vertically */
+    width: 40px;
+    /* Set width and height for the circle */
+    height: 40px;
+}
+
+.social-icons a {
+    color: #FFFFFF;
+    font-size: 24px;
+}
+
+.social-icons a:hover {
+    color: #CCCCCC;
+}
+
+.social-icons li a i {
+    color: var(--secondaryColor);
+}
+
+/* Background colors for icons */
+.instagram {
+    background-color: #8a3ab9;
+    /* Purple */
+}
+
+.facebook {
+    background-color: #3b5998;
+    /* Blue */
+}
+
+.linkedin {
+    background-color: #0077b5;
+    /* LinkedIn Blue */
+}
+
+.youtube {
+    background-color: #ff0000;
+    /* Red */
+}
+
+.footer-bottom-row {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.footer-col {
+    font-size: 20px;
+    flex-grow: 1;
+    /* Allow items to grow to take available space */
+}
+
+.footer-icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.footer-icon a {
+    font-size: 20px;
+}
+
+/* Align first row to the left */
+.footer-bottom-row .footer-col:first-child {
+    text-align: left;
+}
+
+/* Align last row to the right */
+.footer-bottom-row .footer-col:last-child {
+    text-align: right;
+}
+
+/* Media queries for tablet */
+@media (max-width: 768px) {
+    #footer {
+        padding: 50px 20px;
+        /* Adjust padding for responsiveness */
+    }
+
+    .footer-row {
+        flex-direction: column;
+        /* Stack columns vertically */
+    }
+
+    .footer-col {
+        width: 100%;
+        margin-bottom: 20px;
+        /* Add some space between columns */
+    }
+
+    .footer-col-left {
+        text-align: center;
+        /* Center align the text */
+    }
+
+    .footer-col-right {
+        text-align: left;
+        align-items: center;
+        /* Align content to the left on tablet view */
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        /* Center align the social icons */
+        margin-bottom: 20px;
+        /* Add some space between social icons and contact icons */
+    }
+
+    .social-icons li {
+        margin-right: 10px;
+        /* Adjust spacing between social icons */
+    }
+
+    .footer-bottom-row {
+        margin-top: 0px;
+    }
+
+    .footer-col {
+
+        font-size: 12px;
+    }
+}
+
+/* Media queries for mobile */
+@media (max-width: 480px) {
+
+    .footer-col-left p,
+    .footer-col-left p span {
+        font-size: 18px;
+        /* Adjust font size for smaller screens */
+    }
+
+    .footer-col-right p {
+        font-size: 16px;
+        /* Adjust font size for smaller screens */
+    }
+}
